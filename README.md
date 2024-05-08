@@ -29,13 +29,13 @@ Things you may want to cover:
 |   ------   |   ----   |  -----------  |
 |  nickname  |  string  |  null: false  |
 |   email    |  string  |  null: false unique: true |
-|  password  |  string  |  null: false  |
+|  encrypted_password  |  string  |  null: false  |
 | password_confirmation |  string  |  null: false  |
 | name_first |  string  |  null: false  |
 | name_second |  string  |  null: false  |
 | name_first_kana |  string  |  null: false  |
 | name_second_kana |  string  |  null: false  |
-|  birth_day  |  integer   |  null: false  |
+|  birth_day  |  date   |  null: false  |
 
 ### Association
 has_many :items
@@ -46,15 +46,14 @@ has_many :purchases
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false  foreign_key: true|
-|image|text|null: false|
+|user|references|null: false  foreign_key: true|
 |name|string|null: false|
 |explain|text|null: false|
-|category|string|null: false|
-|condition|string|null: false|
-|shopping_free|string|null:false|
-|prefecture|string|null: false|
-|schedule|string|null: false|
+|category_id|integer|null: false|
+|condition_id|integer|null: false|
+|shopping_free_id|integer|null:false|
+|prefecture_id|integer|null: false|
+|schedule_id|integer|null: false|
 |price|integer|null: false|
 
 ### Association
@@ -65,8 +64,8 @@ has_one :purchase
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false  foreign_key: true|
-|item_id|references|null: false  foreign_key: true|
+|user|references|null: false  foreign_key: true|
+|item|references|null: false  foreign_key: true|
 
 ### Association
 belongs_to :user
@@ -77,13 +76,13 @@ has_one :address
 
 |Column|Type|Options|
 |------|----|-------|
-|purchase_id|references|null: false  foreign_key: true|
-|post_code|integer|null: false|
+|purchase|references|null: false  foreign_key: true|
+|post_code|string|null: false|
 |prefectures|string|null: false|
 |city||string|null: false|
 |street||string|null: false|
-|building_name|string|null: false|
-|phone_number|integer|null: false|
+|building_name|string||
+|phone_number|string|null: false|
 
 ### Association
 belongs_to :purchase
