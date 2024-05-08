@@ -30,7 +30,6 @@ Things you may want to cover:
 |  nickname  |  string  |  null: false  |
 |   email    |  string  |  null: false unique: true |
 |  encrypted_password  |  string  |  null: false  |
-| password_confirmation |  string  |  null: false  |
 | name_first |  string  |  null: false  |
 | name_second |  string  |  null: false  |
 | name_first_kana |  string  |  null: false  |
@@ -51,7 +50,7 @@ has_many :purchases
 |explain|text|null: false|
 |category_id|integer|null: false|
 |condition_id|integer|null: false|
-|shopping_free_id|integer|null:false|
+|shopping_free_id|integer|null: false|
 |prefecture_id|integer|null: false|
 |schedule_id|integer|null: false|
 |price|integer|null: false|
@@ -78,7 +77,7 @@ has_one :address
 |------|----|-------|
 |purchase|references|null: false  foreign_key: true|
 |post_code|string|null: false|
-|prefectures|string|null: false|
+|prefecture_id|integer|null: false|
 |city||string|null: false|
 |street||string|null: false|
 |building_name|string||
