@@ -1,6 +1,5 @@
 # README
 
-application up and running.
 ## usersテーブル
 
 |  Column    |   Type   |    Options    |
