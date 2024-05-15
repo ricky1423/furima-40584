@@ -1,10 +1,11 @@
 class Item < ApplicationRecord
+
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
-  belongs_to :shipping_free
+  belongs_to :shopping_free
   belongs_to :prefecture
   belongs_to :schedule
 
@@ -20,5 +21,5 @@ class Item < ApplicationRecord
 
   validates :price, presence: true,
                     numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
-                    format: { with: /\A\d+\z/, message: 'is not a number' }
+                    format: { with: /\A\d+\z/ }
 end
