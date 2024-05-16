@@ -22,6 +22,5 @@ class Item < ApplicationRecord
   validates :schedule_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
 
   validates :price, presence: true,
-                    numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
-                    format: { with: /\A\d+\z/ }
+                    numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 end
