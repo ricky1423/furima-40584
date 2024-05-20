@@ -4,6 +4,11 @@ class PurchasesController < ApplicationController
 
   def index
     @purchase_address = PurchaseAddress.new
+    if user_signed_in? == @item.purchase.present?
+      redirect_to root_path
+    elsif current_user.id == @item.user_id
+      redirect_to root_path
+    end
   end
 
   def create
