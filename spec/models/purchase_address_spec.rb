@@ -29,7 +29,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it '郵便番号が「3桁ハイフン4桁」の半角文字でないと保存できない' do
         @purchase_address.post_code = '1234567'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Post code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@purchase_address.errors.full_messages).to include('Post code is invalid. Enter it as follows (e.g. 123-4567)')
       end
 
       it '都道府県が必須であること。' do
@@ -65,7 +65,13 @@ RSpec.describe PurchaseAddress, type: :model do
       it '電話番号は、10桁以上11桁以内の半角数値のみ保存可能なこと.' do
         @purchase_address.phone_number = '090-1234-5678'
         @purchase_address.valid?
-        expect(@purchase_address.errors.full_messages).to include("Phone number is invalid. Input only number")
+        expect(@purchase_address.errors.full_messages).to include('Phone number is invalid. Input only number')
+      end
+
+      it 'tokenが空では登録できないこと' do
+        @purchase_address.token = nil
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
